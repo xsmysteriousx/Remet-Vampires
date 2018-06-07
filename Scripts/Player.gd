@@ -40,7 +40,9 @@ func _process(delta):
 		andando = true
 		
 	set_pos(get_pos() + Vector2 (0, vel) * delta * (c + b))
-	
+	if animacao != nova_anim:
+		get_node("Sprite/anim").play(nova_anim)
+		animacao = nova_anim
 		
 	if andando == true:
 		nova_anim  = "walk"
@@ -50,7 +52,6 @@ func _process(delta):
 		
 func _input(event):
 	if event.is_action_pressed("bater"):
-		bate()
 		get_node("Sprite/anim").play("bate")
 
 func troca_animacao():

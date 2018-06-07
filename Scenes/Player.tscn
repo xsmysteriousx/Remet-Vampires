@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource/name = "bate"
 length = 0.2
@@ -42,9 +42,8 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource/name = "walk"
 length = 0.5
 loop = true
 step = 0.1
@@ -59,12 +58,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 1, 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.87368, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.95858, 10 )
@@ -93,15 +92,16 @@ transform/pos = Vector2( 0, -0.429276 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 5
+frame = 3
 
 [node name="anim" type="AnimationPlayer" parent="Sprite"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bate = SubResource( 6 )
+anims/bate = SubResource( 2 )
 anims/idle = SubResource( 3 )
-anims/walk = SubResource( 2 )
+anims/walk = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -110,7 +110,7 @@ autoplay = "idle"
 [node name="mouse_colide1" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 20, 0, 0, 50, -62.482, 0.154697 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -122,14 +122,14 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -62.482, 0.154697 )
 transform/scale = Vector2( 20, 50 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
 [node name="mouse_colide2" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 20, 0, 0, 50, 63.686, 0.93602 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -141,7 +141,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( 63.686, 0.93602 )
 transform/scale = Vector2( 20, 50 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
