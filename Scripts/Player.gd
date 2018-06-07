@@ -41,9 +41,6 @@ func _process(delta):
 		
 	set_pos(get_pos() + Vector2 (0, vel) * delta * (c + b))
 	
-	if animacao != nova_anim:
-		get_node("Sprite/anim").play(nova_anim)
-		animacao = nova_anim
 		
 	if andando == true:
 		nova_anim  = "walk"
@@ -56,8 +53,10 @@ func _input(event):
 		bate()
 		get_node("Sprite/anim").play("bate")
 
-func bate():
-	
+func troca_animacao():
+	if animacao != nova_anim:
+		get_node("Sprite/anim").play(nova_anim)
+		animacao = nova_anim
 	pass
 func _on_mouse_pos_area_enter( area ):
 	if area.get_name() == "mouse_colide1":
